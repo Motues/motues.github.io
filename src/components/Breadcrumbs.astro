@@ -17,6 +17,9 @@ breadcrumbList[0] === "about" &&
 breadcrumbList[0] === "links" &&
   breadcrumbList.splice(0, 2, `友链`);
 
+breadcrumbList[0] === "search" &&
+  breadcrumbList.splice(0, 2, `搜索`);
+
 // if breadcrumb is Home > Tags > [tag] > [page] <etc>
 // replace [tag] > [page] with [tag] (page number)
 breadcrumbList[0] === "tags" &&
