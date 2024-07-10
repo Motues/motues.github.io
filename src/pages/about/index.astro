@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Layout from "@layouts/Layout.astro";
+import Main from "@layouts/Main.astro";
+import { SITE } from "@config";
+
+const posts = await getCollection("blog");
+
+---
+
+<Layout title={`关于我 | ${SITE.title}`}>
+  <Header activeNav="about" />
+  <Main pageTitle="关于我" pageDesc="Like River!">
+    
+  </Main>
+  <Footer />
+</Layout>
