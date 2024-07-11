@@ -9,13 +9,10 @@ import Card from "@components/Card";
 import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SOCIALS } from "@config";
-
 const posts = await getCollection("blog");
-
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
-
 const socialCount = SOCIALS.filter((social) => social.active).length;
 ---
 
@@ -48,10 +45,9 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
     </section>
     对哦，怎么可能全部记住呢......
   </main>
-  这个Blog里将会记录下我渐渐忘却的记忆，当我再次看见这些文字，希望我还可以回忆起以前丢失的记忆......
+  这个Blog里将会记录下我渐渐忘却的记忆，当我再次看见这些文字，希望我还可以回忆起以及丢失的记忆......
 </Layout>
-<!-- 
-      {
+<!-- {
         // only display if at least one social link is enabled
         socialCount > 0 && (
           <div class="social-wrapper">
