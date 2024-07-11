@@ -25,7 +25,7 @@
       "",
       "${2: Introductory Sentence}",
       "",
-      "## Table of contents",
+      "## Table",
       "",
       "## ${3: heading 1}",
     ],

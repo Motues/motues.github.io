@@ -24,7 +24,7 @@ const { currentPage, totalPages, paginatedPosts, tag, tagName } = Astro.props;
   <Main
     pageTitle={[`标签：`, `${tagName}`]}
     titleTransition={tag}
-    pageDesc={`含有标签 "${tagName}"的所有文章。`}
+    pageDesc={`含有标签"${tagName}"的所有文章。`}
   >
     <h1 slot="title" transition:name={tag}>{`标签：${tag}`}</h1>
     <ul>

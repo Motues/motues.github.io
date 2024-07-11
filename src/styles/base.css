@@ -89,6 +89,9 @@
   .prose h2#table-of-contents + p {
     @apply hidden;
   }
+  .prose h3 {
+    font-style: normal !important;
+  }
 
   /* ===== scrollbar ===== */
   html {

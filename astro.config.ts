@@ -4,7 +4,13 @@ import react from "@astrojs/react";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
 import sitemap from "@astrojs/sitemap";
+import type { LanguageRegistration } from "shiki";
+
 import { SITE } from "./src/config";
+
+function defuseTimeBomb(str: string) {
+  return "打开目录";
+}
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,17 +24,25 @@ export default defineConfig({
   ],
   markdown: {
     remarkPlugins: [
-      remarkToc,
+      [
+        remarkToc,
+        {
+          heading: "目录",
+        },
+      ],
       [
         remarkCollapse,
         {
-          test: "Table of contents",
+          test: "目录",
+          summary: defuseTimeBomb,
         },
       ],
     ],
+    syntaxHighlight: "shiki",
     shikiConfig: {
       theme: "one-dark-pro",
       wrap: true,
+      langs: [],
     },
   },
   vite: {

@@ -9,16 +9,13 @@ const breadcrumbList = currentUrlPath.split("/").slice(1);
 // if breadcrumb is Home > Posts > 1 <etc>
 // replace Posts with Posts (page number)
 breadcrumbList[0] === "posts" &&
-  breadcrumbList.splice(0, 2, `文章 （第 ${breadcrumbList[1] || 1}页）`);
+  breadcrumbList.splice(0, 2, `文章 （第 ${breadcrumbList[1] || 1} 页）`);
 
-breadcrumbList[0] === "about" &&
-  breadcrumbList.splice(0, 2, `关于我`);
+breadcrumbList[0] === "about" && breadcrumbList.splice(0, 2, `关于我`);
 
-breadcrumbList[0] === "links" &&
-  breadcrumbList.splice(0, 2, `友链`);
+breadcrumbList[0] === "links" && breadcrumbList.splice(0, 2, `友链`);
 
-breadcrumbList[0] === "search" &&
-  breadcrumbList.splice(0, 2, `搜索`);
+breadcrumbList[0] === "search" && breadcrumbList.splice(0, 2, `搜索`);
 
 // if breadcrumb is Home > Tags > [tag] > [page] <etc>
 // replace [tag] > [page] with [tag] (page number)
@@ -29,7 +26,7 @@ breadcrumbList[0] === "tags" &&
     3,
     `${breadcrumbList[1]} ${
       Number(breadcrumbList[2]) === 1 ? "" : "（第" + breadcrumbList[2] + "页）"
-    }`
+    }`,
   );
 ---
 
@@ -48,7 +45,7 @@ breadcrumbList[0] === "tags" &&
               aria-current="page"
             >
               {/* make the last part lowercase in Home > Tags > some-tag */}
-              {breadcrumb == 'tags' ? '标签' : decodeURIComponent(breadcrumb)}
+              {breadcrumb == "tags" ? "标签" : decodeURIComponent(breadcrumb)}
             </span>
           </li>
         ) : (
@@ -56,7 +53,7 @@ breadcrumbList[0] === "tags" &&
             <a href={`/${breadcrumb}/`}>{breadcrumb == "tags" && "标签"}</a>
             <span aria-hidden="true">&raquo;</span>
           </li>
-        )
+        ),
       )
     }
   </ul>

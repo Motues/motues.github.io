@@ -1,14 +1,14 @@
 ---
-title: 第一篇文章
+title: 如何管理网站
 author: Motues
-pubDatetime: 2024-07-10T20:14:00Z
-slug: first-page
+pubDatetime: 2024-07-10T17:35:00Z
+slug: web-manage
 featured: true
 draft: true
 tags:
   - 其他
 ogImage: ""
-description: Motues的第一篇文章。
+description: 这篇文章关于如何在本网站上发表博客，以及网站的参数设置。
 canonicalURL: https://motues.top/posts
 ---
 
