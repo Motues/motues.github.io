@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+import AboutLayout from "@layouts/AboutLayout.astro";
+import { Image } from "astro:assets";
+const posts = await getCollection("blog");
+---
+
+<AboutLayout frontmatter={{ title: "" }}>
+  <Image
+    src="/image/about/Motues.png"
+    alt={"Motues"}
+    width="256"
+    height="256"
+    format="png"
+  />
+  <h2>我的名字叫Motues，可以叫我小M。</h2>
+  <p>目前正在朝着自己喜欢的方向前进！</p>
+  <h2>关于我的一些事情</h2>
+  <ul>
+    <li>🌈旅游，看电影，探索生活！</li>
+    <li>
+      🌸听歌--<a href="https://music.163.com/#/mv?id=14719419"
+        >一起去看日出吧！</a>
+    </li>
+    <li>💻下雨天开一盏灯，写写代码！</li>
+    <li>🤖焊板，修车，<a href="https://www.robomaster.com/">RMer</a>！</li>
+  </ul>
+  <h2>教育经历</h2>
+  <ul>
+    <li>2017.9-2020.7 --- <a href="http://www.lagczx.com/">六安皋城中学</a></li>
+    <li>
+      2020.9-2023.6 --- <a href="http://www.layz.net/">安徽省六安第一中学</a>
+    </li>
+    <li>
+      2023.9-2027.6 --- <a href="https://www.hust.edu.cn/">华中科技大学</a>
+    </li>
+  </ul>
+  <p>欢迎来和我交流呀！</p>
+</AboutLayout>
