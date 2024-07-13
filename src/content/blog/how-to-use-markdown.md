@@ -6,9 +6,9 @@ slug: how-to-use-markdown
 featured: true
 draft: false
 tags:
-  - Markdown
+  - 其他
 ogImage: ""
-description: 这篇文章介绍了Markdown语法
+description: Motues的第一篇文章。
 canonicalURL: https://motues.top/posts
 ---
 

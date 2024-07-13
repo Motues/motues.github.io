@@ -12,4 +12,34 @@ description: 这是一篇模板，方便快速创建Blog。
 canonicalURL: https://motues.top/posts
 ---
 
-这是blog模板，方便快速创建Blog。
+这个是Blog模板，方便快速创建Blog。
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1

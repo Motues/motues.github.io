@@ -6,11 +6,11 @@
   :root,
   html[data-theme="light"] {
     --color-fill: 250, 252, 252;
-    --color-text-base: 53, 53, 56;
-    --color-accent: 124, 125, 222;
-    --color-card: 206, 213, 180;
-    --color-card-muted: 187, 199, 137;
-    --color-border: 124, 125, 222;
+    --color-text-base: 40, 39, 40;
+    --color-accent: 0, 108, 172;
+    --color-card: 230, 230, 230;
+    --color-card-muted: 205, 205, 205;
+    --color-border: 236, 233, 233;
   }
   html[data-theme="dark"] {
     --color-fill: 47, 55, 65;

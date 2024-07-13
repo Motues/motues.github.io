@@ -4,7 +4,7 @@ import react from "@astrojs/react";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
 import sitemap from "@astrojs/sitemap";
-import type { LanguageRegistration } from "shiki";
+import { shield } from "@kindspells/astro-shield";
 
 import { SITE } from "./src/config";
 
@@ -21,6 +21,7 @@ export default defineConfig({
     }),
     react(),
     sitemap(),
+    shield({}),
   ],
   markdown: {
     remarkPlugins: [
