@@ -4,7 +4,7 @@ published: 2024-07-18
 description: "如何再VSCode里配置C++环境"
 image: ""
 tags: ["C++", "VSCode"]
-category: Coding
+category: 编程
 draft: false
 ---
 
