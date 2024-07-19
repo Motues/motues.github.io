@@ -16,7 +16,7 @@ export const siteConfig: SiteConfig = {
   },
   banner: {
     enable: true,
-    src: 'assets/images/demo-banner.png',   // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+    src: 'assets/images/bg1.jpg',   // Relative to the /src directory. Relative to the /public directory if it starts with '/'
     position: 'center', // Equivalent to object-position, defaults center
   },
   favicon: [    // Leave this array empty to use the default favicon
@@ -45,7 +45,7 @@ export const navBarConfig: NavBarConfig = {
 export const profileConfig: ProfileConfig = {
   avatar: 'assets/images/Motues.jpg',  // Relative to the /src directory. Relative to the /public directory if it starts with '/'
   name: 'Motues',
-  bio: '念念不忘，必有回响',
+  bio: 'Like River!',
   links: [
     // Visit https://icones.js.org/ for icon codes
     // You will need to install the corresponding icon set if it's not already included
@@ -65,16 +65,21 @@ export const profileConfig: ProfileConfig = {
       icon: 'fa6-brands:qq',
       url: 'tencent://message/?uin=2901987286&Site=&Menu=yes',
     },
+    // {
+    //   name: 'Phone',
+    //   icon: 'fa6-solid:phone',
+    //   url: 'tel:19856013376',
+    // },
     {
-      name: 'Phone',
-      icon: 'fa6-solid:phone',
-      url: 'tel:19856013376',
+      name: 'NetEase',
+      icon: 'simple-icons:neteasecloudmusic',
+      url: 'https://music.163.com/#/user/home?id=1601379853',
     }
   ],
 }
 
 export const licenseConfig: LicenseConfig = {
-  enable: false,
+  enable: true,
   name: 'CC BY-NC-SA 4.0',
   url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
 }

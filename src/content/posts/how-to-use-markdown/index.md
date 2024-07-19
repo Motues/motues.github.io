@@ -4,11 +4,11 @@ published: 2024-07-14
 description: "如何使用Markdown"
 image: "./cover.jpeg"
 tags: ["Markdown"]
-category: 使用技能
+category: 技能
 draft: false
 ---
 
-## 目录
+<!-- ## 目录 -->
 
 ## 标题
 
@@ -236,11 +236,12 @@ int main() {
 先感叹号（!），然后在括号中添加替代文本，并在括号中添加图像资源的路径或URL，也可以选择在括号中的URL之后添加标题。
 
 ```markdown
-![Motues](/image/how-to-use-markdown/Motues.png "这是我的头像")
+![Motues](./Motues.png "这是我的头像")
 ```
 
 显示如下:  
-<img src="/image/how-to-use-markdown/Motues.png" alt="Motues" title="这是我的头像" width="256" height="256">
+![Motues](./Motues.png "这是我的头像")
+<!-- <img src="./Motues.png" alt="Motues" title="这是我的头像" width="256" height="256"> -->
 
 ## 表格
 

@@ -7,6 +7,8 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings"
 import rehypeKatex from "rehype-katex"
 import rehypeSlug from "rehype-slug"
 import remarkMath from "remark-math"
+// import remarkToc from "remark-toc";
+// import remarkCollapse from "remark-collapse";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs"
 import { GithubCardComponent } from "./src/plugins/rehype-component-github-card.mjs"
 import { AdmonitionComponent } from "./src/plugins/rehype-component-admonition.mjs"
@@ -26,6 +28,9 @@ const oklchToHex = (str) => {
   return new Color("oklch", lch).to("srgb").toString({
     format: "hex",
   })
+}
+function defuseTimeBomb(_str) {
+  return "打开目录";
 }
 
 // https://astro.build/config
@@ -60,6 +65,26 @@ export default defineConfig({
     sitemap(),
   ],
   markdown: {
+    // remarkPlugins: [
+    //   [
+    //     remarkToc,
+    //     {
+    //       heading: "目录",
+    //     },
+    //   ],
+    //   [
+    //     remarkCollapse,
+    //     {
+    //       test: "目录",
+    //       summary: defuseTimeBomb,
+    //     },
+    //   ],
+    // ],
+    shikiConfig: {
+      theme: "one-dark-pro",
+      wrap: true,
+      langs: [],
+    },
     remarkPlugins: [remarkMath, remarkReadingTime, remarkGithubAdmonitionsToDirectives, remarkDirective, parseDirectiveNode],
     rehypePlugins: [
       rehypeKatex,
