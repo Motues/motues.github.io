@@ -1,7 +1,7 @@
 ---
 title: VSCode里的C++环境配置
 published: 2024-07-18
-description: "如何再VSCode里配置C++环境"
+description: "如何在VSCode里配置C++环境"
 image: ""
 tags: ["C++", "VSCode"]
 category: 编程
@@ -33,6 +33,7 @@ draft: false
 * `C/C++` 用于配置C++编译器
 * `C/C++ Complie Run` 用于编译运行C++程序
 * `C/C++ Runner` 生成运行文件
+* `CodeLLDB` 调试依赖文件
 * `Chinese (Simplified)` 汉化，可选
 * `TONGYI Lingma` 大模型，可选，提高效率神器
 
@@ -93,6 +94,11 @@ int main() {
     "-o",
     "${fileDirname}\\..\\bin\\${fileBasenameNoExtension}.exe"
 ]
+```
+修改`launch.json`文件，将`"configurations"`中的目标工作目录`swd`修改为`${workspaceFolder}/bin`。
+```json
+//launch.json
+"cwd": "${workspaceFolder}/bin"
 ```
 
 此时再去调试就会在下方终端处显示结果，并在`bin`文件夹下生成一个可执行文件。
