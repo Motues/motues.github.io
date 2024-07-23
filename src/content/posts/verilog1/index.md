@@ -13,11 +13,11 @@ Verilog是一种描述逻辑电路的描述语言，它被设计用来描述逻�
 
 ## 1 verilog基础知识
 ### 1.1 逻辑值
-在Verilog中，逻辑值主要包括四种，分别是0，1，X，Z。
-* 逻辑0：表示低电平，对应电路的GND；
-* 逻辑1：表示高电平，对应电路的VCC；
-* 逻辑X：表示不确定，通常用于表示无法确定逻辑值的情况；
-* 逻辑Z：表示高阻态，对应电路的悬空状态。
+在Verilog中，逻辑值主要包括四种，分别是`0`，`1`，`X`，`Z`。
+* 逻辑`0`：表示低电平，对应电路的GND；
+* 逻辑`1`：表示高电平，对应电路的VCC；
+* 逻辑`X`：表示不确定，通常用于表示无法确定逻辑值的情况；
+* 逻辑`Z`：表示高阻态，对应电路的悬空状态。
 
 ### 1.2 数字
 在Verilog中，数字可以表示为二进制、八进制、十进制、十六进制等，一般的表示格式为`位宽` + `'` + `进制类型` + `数值`。
@@ -110,7 +110,7 @@ endmodule
 * 模块的输入输出属性包括：输入`input`，输出`output`，输入/输出`inout`。
 * 数据类型分为`variable`和`net`类，如果不指定，默认为`wire`。但是在`always`语句和`inital`块中，默认为`reg`。
 
-### 2.2 assign连续赋值语句
+### 2.2 `assign`连续赋值语句
 连续赋值语句用于定义一个信号的赋值过程，用assign语句实现；只能对`net`类型的信号赋值。
 ```verilog
 wire [31:0] data_out;
@@ -135,8 +135,8 @@ always @(posedge clk) begin
 end
 ```
 
-### 2.4 inital语句
-inital语句用于定义一个初始化过程，在Verilog中，初始化过程会在仿真开始时执行，并且只执行一次。
+### 2.4 `inital`语句
+`inital`语句用于定义一个初始化过程，在Verilog中，初始化过程会在仿真开始时执行，并且只执行一次。
 ```verilog
 initial begin
     count = 0;
@@ -145,7 +145,7 @@ end
 ```
 
 ### 2.5 always语句
-always语句用于描述时序逻辑和组合逻辑，其语为`always @(敏感信号)`，当检测到敏感信号发生变化时，便会执行always块中的语句。
+`always`语句用于描述时序逻辑和组合逻辑，其语为`always @(敏感信号)`，当检测到敏感信号发生变化时，便会执行always块中的语句。
 ```verilog
 //在clk的上升沿或者rst的下降沿激活
 always @(posedge clk or negedge rst) begin
@@ -157,13 +157,13 @@ always @(posedge clk or negedge rst) begin
 end
 ```
 :::note[注意]
-* inital语句和always语句都会在仿真开始时执行，但是always语句块中的语句检测到敏感信号变化时就会执行，而inital语句块中的语句会在仿真开始时执行一次。
-* inital语句和always语句默认生成的信号为`reg`类型。
+* `inital`语句和`always`语句都会在仿真开始时执行，但是`always`语句块中的语句检测到敏感信号变化时就会执行，而`inital`语句块中的语句会在仿真开始时执行一次。
+* `inital`语句和`always`语句默认生成的信号为`reg`类型。
 :::
 
-### 2.5 function语句
+### 2.5 `function`语句
 
-### 2.6 task语句
+### 2.6 `task`语句
 
 ### 2.7 条件语句
 Verilog里面的条件语句包括`if else`语句和`case`语句。
@@ -178,7 +178,7 @@ end else begin
 end
 ```
 :::note[注意]
-* 条件语句必须在initial和always语句所引导的过程块中使用。表达式为0或者x视为假；
+* 条件语句必须在`initial`和`always`语句所引导的过程块中使用。表达式为`0`或者`x`视为假；
 * `if else`支持嵌套，与C/C++类似。如果只有一句命令可以不使用`begin end`。
 :::
 
@@ -212,7 +212,7 @@ endgenerate
 ```
 
 #### 2.8.2 `forever`循环
-用于连续执行某个过程，直到仿真结束。需要注意的是，forever 循环语句常用于产生周期性的波形，只能用来作为仿真测试信号，必须写在 initial 块中。  
+用于连续执行某个过程，直到仿真结束。需要注意的是，`forever`循环语句常用于产生周期性的波形，只能用来作为仿真测试信号，必须写在 `initial`块中。  
 语法结构如下：
 ```verilog
 forever begin
