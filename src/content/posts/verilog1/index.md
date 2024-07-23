@@ -5,7 +5,7 @@ description: "Verilog学习——基础语法"
 image: ""
 tags: ["Verilog"]
 category: 编程
-draft: true
+draft: false
 ---
 
 ## 0 Verilog简介
@@ -52,7 +52,7 @@ parameter DELAY_TIME = 10; // 延迟时间，表示十个单位的延迟
 parameter DATA_WIDTH = 32; // 数据位宽，表示32位数据
 ```
 
-## 1.4 运算符
+### 1.4 运算符
 Verilog中运算符与C/C++类似，包括：
 * 算术运算符：`+`，`-`，`*`，`/`，`%`
 * 逻辑运算符：`!`，`&&`，`||`
@@ -75,6 +75,7 @@ Verilog中运算符与C/C++类似，包括：
         data_out <= data_in;
     end
     ```
+    非阻塞赋值`=`与C/C++相同，计算后立刻赋值；阻塞赋值`<=`则先进行计算，在统一赋值。
 * 连接运算符`{}`用于将不同的信号合成为一个信号
     ```verilog
     wire [5:0] a,b,c;
@@ -86,6 +87,150 @@ Verilog中运算符与C/C++类似，包括：
     ```
 :::
 
-:::note
-普通内部信号建议全部小写，参数定义建议大写，另外信号命名最好体现信号的含义
+### 1.5 标识符
+标识符用于定义模块名称、端口名和信号名等，可以由字母、数字、下划线`_`和`$`组成。标识符的第一个字符必须是字母或者下划线，和C/C++一样，区分大小写。
+
+## 2 Verilog基本语法
+
+### 2.1 模块
+
+在Verilog中，模块相当于一个函数，对应于一个硬件，用于完成某种特点的操作，比如计数，控制器等。  
+模块的定义如下：
+```verilog
+module module_name (
+    input [31:0] data_in, // 输入信号
+    output [31:0] data_out, // 输出信号
+    input rst, // 复位信号
+    input clk // 时钟信号
+    );
+
+endmodule
+```
+在以上代码，括号里面是I/O端口说明，格式为`输入输出属性` + `数据类型` + `信号位宽` + `信号名称`。
+* 模块的输入输出属性包括：输入`input`，输出`output`，输入/输出`inout`。
+* 数据类型分为`variable`和`net`类，如果不指定，默认为`wire`。但是在`always`语句和`inital`块中，默认为`reg`。
+
+### 2.2 assign连续赋值语句
+连续赋值语句用于定义一个信号的赋值过程，用assign语句实现；只能对`net`类型的信号赋值。
+```verilog
+wire [31:0] data_out;
+assign data_out = data_in;
+```
+
+### 2.3 块语句
+块语句用于定义一个逻辑块，分为两种，分别为顺序块`begin end`和并行快`fork join`。顺序块和并行块的区别在于，顺序块是串行执行，并行块是并行执行。  
+块可以有自己的名字，并通过`disable`关键字禁用。
+```verilog
+always @(posedge clk) begin
+    if (rst) begin
+        count <= 0;
+        disable block_name; // 禁用block_name块
+    end
+    else begin
+        count <= count + 1;
+        if (count == 10) begin
+            count <= 0;
+        end
+    end
+end
+```
+
+### 2.4 inital语句
+inital语句用于定义一个初始化过程，在Verilog中，初始化过程会在仿真开始时执行，并且只执行一次。
+```verilog
+initial begin
+    count = 0;
+    rst = 1;
+end
+```
+
+### 2.5 always语句
+always语句用于描述时序逻辑和组合逻辑，其语为`always @(敏感信号)`，当检测到敏感信号发生变化时，便会执行always块中的语句。
+```verilog
+//在clk的上升沿或者rst的下降沿激活
+always @(posedge clk or negedge rst) begin
+    if (!rst) begin
+        reg <= 0;
+    end else begin
+        reg <= data_in;
+    end
+end
+```
+:::note[注意]
+* inital语句和always语句都会在仿真开始时执行，但是always语句块中的语句检测到敏感信号变化时就会执行，而inital语句块中的语句会在仿真开始时执行一次。
+* inital语句和always语句默认生成的信号为`reg`类型。
 :::
+
+### 2.5 function语句
+
+### 2.6 task语句
+
+### 2.7 条件语句
+Verilog里面的条件语句包括`if else`语句和`case`语句。
+
+#### 2.7.1 `if else`语句
+语法结构如下:
+```verilog
+if (condition) begin
+    // if语句块
+end else begin
+    // else语句块
+end
+```
+:::note[注意]
+* 条件语句必须在initial和always语句所引导的过程块中使用。表达式为0或者x视为假；
+* `if else`支持嵌套，与C/C++类似。如果只有一句命令可以不使用`begin end`。
+:::
+
+#### 2.7.2 `case`语句
+语法结构如下：
+```verilog
+case (condition)
+    value1: //执行语句1
+    value2: //执行语句2
+    default: //执行语句3
+endcase
+```
+:::note[注意]
+* 一般加上`default`，防止产生锁存器以及自锁现象；
+* 所有表达式位宽必须相同；
+* `case`可以换成`casez`和`casex`，`casez`用来处理不考虑高阻值z的比较过程，`casex`用来处理将高阻值z和不定值x都视为不关心的过程；
+* `case`语句支持嵌套，与C/C++类似。如果只有一句命令可以不使用`begin end`。
+:::
+
+### 2.8 循环语句
+循环语句包括`for`循环、`repeat`循环、`forever`循环和`while`循环，最常用的为`for`循环。
+
+#### 2.8.1 `for`循环
+`for`循环与C/C++类似，综合电路使用最多的语法结构如下：
+```verilog
+generate
+    for (init; condition; update) begin
+        // for循环体
+    end
+endgenerate
+```
+
+#### 2.8.2 `forever`循环
+用于连续执行某个过程，直到仿真结束。需要注意的是，forever 循环语句常用于产生周期性的波形，只能用来作为仿真测试信号，必须写在 initial 块中。  
+语法结构如下：
+```verilog
+forever begin
+    // forever循环体
+end
+```
+
+### 2.9 模块实例
+
+
+## 3 预编译语句
+
+### 3.1 `timescale`语句
+`timescale`定义了仿真模型中时间单位和时间精度的标准，该指令通常放在模块的开头，用于指定仿真中的时间单位和精度，用法如下。
+```verilog
+timescale 1ns/1ps; // 1ns表示仿真时间基本单位，1ps表示仿真时间精度
+```
+
+### 3.2 `include`语句
+
+### 3.3 `define`语句
