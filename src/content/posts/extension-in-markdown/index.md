@@ -1,7 +1,7 @@
 ---
 title: 补充的Markdown语法
-published: 2024-07-14
-description: "如何使用Markdown"
+published: 2024-07-15
+description: "介绍一些其他的高级Markdown语法。"
 image: ""
 tags: ["Markdown"]
 category: 技能
