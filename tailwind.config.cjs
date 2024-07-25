@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Roboto", "sans-serif", ...defaultTheme.fontFamily.sans],
+        serif: ["Time New Roman", "serif", ...defaultTheme.fontFamily.serif],
       },
     },
   },
