@@ -60,6 +60,10 @@ export default defineConfig({
     }),
     Compress({
       Image: false,
+      CSS: false,
+      Action: {
+        Passed: async () => true,
+      }
     }),
     svelte(),
     sitemap(),
