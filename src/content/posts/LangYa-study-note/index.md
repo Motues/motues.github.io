@@ -3,9 +3,9 @@ title: 学习记录
 published: 2024-08-11
 description: "学习记录"
 image: ""
-tags: ["C++", "CMake"]
+tags: ["C++", "CMake", "Make"]
 category: 编程
-draft: false
+draft: true
 ---
 
 ## 8.11
