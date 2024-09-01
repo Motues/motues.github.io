@@ -21,3 +21,6 @@ pnpm-debug.log*
 .DS_Store
 
 .vercel
+
+# VS Code
+.vscode/
