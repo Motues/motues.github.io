@@ -51,12 +51,12 @@ void Dem() {
 ## 堆空间
 
 ### 使用`malloc`
-我们可以使用`cstdlib`的`malloc`和`free`函数来申请和释放堆空间。
+我们可以使用`cstdlib`的`malloc`和`free`函数来申请和释放堆空间，单位为字节。
 ```c++
 #include <cstdlib>
 
 void Demo() {
-  void *buffer = std::malloc(64); // 申请64 bytes 的堆空间
+  void *buffer = std::malloc(64); // 申请64字节的堆空间
   if (buffer != nullptr) { // 判断堆空间是否申请成功
     // TODO 使用 buffer
     std::free(buffer); // 使用完要进行释放
@@ -67,17 +67,19 @@ void Demo() {
 ```
 
 ### 使用`opreator new`
-`operator new`是一个特殊的操作符，用于在堆上分配内存，区别于`new`，它只分配内存，不进行初始化。  
+`operator new`是一个特殊的操作符，用于在堆上分配内存，区别于`new`，它只分配内存，不进行初始化，单位为字节。  
 需要注意的是，使用`operator new`时，如果分配失败，`operator new`会抛出一个异常，而不是返回一个空指针，这里我们需要使用`try catch`自行捕获异常，并进行处理。
 ```c++
 void Demo() {
     void *buffer = nullptr; // 定义一个空指针
     try {
-        buffer = ::operator new(16); // 申请 16 bytes 的堆空间
+        buffer = ::operator new(16); // 申请16字节的堆空间
     } catch (const std::exception &errmsg) { // 捕获异常
         // TODO 错误处理
     }
     // TODO 使用 buffer
+    auto array = static_cast<uint8_t *>(buffer); // 把内存转换为数组，类型为uint8_t
+    for (int i = 0; i < 16; i++) array[i] = i;
     ::operator delete(buffer); // 释放堆空间
 }
 ```
