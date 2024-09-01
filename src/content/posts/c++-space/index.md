@@ -1,7 +1,7 @@
 ---
 title: 【C++】空间管理
 published: 2024-08-20
-description: "这里介绍了现代C++（C++11-C++23）的一些特性，方便从C语言过渡到C++"
+description: "C++学习记录"
 image: ""
 tags: ["C++"]
 category: 编程
@@ -50,7 +50,7 @@ void Dem() {
 
 ## 堆空间
 
-### 使用库函数
+### 使用`malloc`
 我们可以使用`cstdlib`的`malloc`和`free`函数来申请和释放堆空间。
 ```c++
 #include <cstdlib>
@@ -65,3 +65,37 @@ void Demo() {
   }
 }
 ```
+
+### 使用`opreator new`
+`operator new`是一个特殊的操作符，用于在堆上分配内存，区别于`new`，它只分配内存，不进行初始化。  
+需要注意的是，使用`operator new`时，如果分配失败，`operator new`会抛出一个异常，而不是返回一个空指针，这里我们需要使用`try catch`自行捕获异常，并进行处理。
+```c++
+void Demo() {
+    void *buffer = nullptr; // 定义一个空指针
+    try {
+        buffer = ::operator new(16); // 申请 16 bytes 的堆空间
+    } catch (const std::exception &errmsg) { // 捕获异常
+        // TODO 错误处理
+    }
+    // TODO 使用 buffer
+    ::operator delete(buffer); // 释放堆空间
+}
+```
+
+### 使用`new`
+对于具体类型的变量，我们可以使用`new`来申请堆空间。  
+`new`实际上是调用了`operator new`，再对申请到的空间进行初始化。
+```c++
+void Demo() {
+  int *pIntArray = new int[10];
+  // TODO 使用 pIntArray
+  delete[] pIntArray;
+  pIntArray = nullptr;
+}
+```
+
+## 注意事项
+:::note[注意]
+* 栈区的变量在函数调用结束后会被销毁，有自己的生命周期，而堆区的变量需要我们手动释放，否则会造成内存泄漏；
+* 堆区没有类型定义，如何使用内存空间取决于空间的使用方。
+:::

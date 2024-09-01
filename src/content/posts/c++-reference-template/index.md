@@ -1,7 +1,7 @@
 ---
 title: 【C++】引用与模板
 published: 2024-08-20
-description: "这里介绍了现代C++（C++11-C++23）的一些特性，方便从C语言过渡到C++"
+description: "C++学习记录"
 image: ""
 tags: ["C++"]
 category: 编程
