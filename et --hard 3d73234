@@ -1,0 +1,325 @@
+[33mcommit 1c254aadafaf98246f8fce1fc39a7a27149ac210[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Motues <164032838+Motues@users.noreply.github.com>
+Date:   Mon Sep 2 20:28:29 2024 +0800
+
+    Update astro.config.mjs
+
+[33mcommit 3d73234aeeee910a93e7ce5f2ce49d341c835014[m
+Author: Motues <2901987286@qq.com>
+Date:   Mon Sep 2 20:25:05 2024 +0800
+
+    Modify const post
+
+[33mcommit d06460af80e399ad27146c363b6e42b41e115085[m
+Author: Motues <2901987286@qq.com>
+Date:   Mon Sep 2 20:13:53 2024 +0800
+
+    Modify config
+
+[33mcommit bb8e6bc1dad652494d08695b851aeef347c11d77[m
+Author: Motues <2901987286@qq.com>
+Date:   Mon Sep 2 19:58:12 2024 +0800
+
+    const
+
+[33mcommit 832915d021d9e2d4aa87aa0aec37e75129f86f73[m
+Author: Motues <2901987286@qq.com>
+Date:   Mon Sep 2 14:09:26 2024 +0800
+
+    static
+
+[33mcommit af4314fac8e56faef12a5d638956ebabcb5cb77e[m
+Author: Motues <2901987286@qq.com>
+Date:   Sun Sep 1 20:30:42 2024 +0800
+
+    static
+
+[33mcommit e683576577283fd8bb425215f9d1ce790da01a72[m
+Author: Motues <2901987286@qq.com>
+Date:   Sun Sep 1 17:29:36 2024 +0800
+
+    little change
+
+[33mcommit 852059bb472577b54f1b9d07766ac62342848afd[m
+Author: Motues <2901987286@qq.com>
+Date:   Sun Sep 1 17:28:20 2024 +0800
+
+    Modify gitignore
+
+[33mcommit ab8be7df1fae9ad100035477ce76e610e4ad0e94[m
+Author: Motues <2901987286@qq.com>
+Date:   Sun Sep 1 17:28:00 2024 +0800
+
+    space
+
+[33mcommit 127be0b80f779194008648bc5bde33d9fcec7c2b[m
+Author: Motues <2901987286@qq.com>
+Date:   Sun Sep 1 17:05:44 2024 +0800
+
+    space study note
+
+[33mcommit a24a11678ca5d2fc8747a8fe4c742d5ba51687b6[m
+Author: Motues <2901987286@qq.com>
+Date:   Sat Aug 31 19:11:14 2024 +0800
+
+    class
+
+[33mcommit 1ee3a3150ea395bb067183dc841f8b4f35ac93a4[m
+Author: Motues <2901987286@qq.com>
+Date:   Sat Aug 31 19:10:43 2024 +0800
+
+    space
+
+[33mcommit 113f440588c227f3d8186a6859fe015240191087[m
+Author: Motues <2901987286@qq.com>
+Date:   Thu Aug 29 16:18:07 2024 +0800
+
+    8.29
+
+[33mcommit fc414a17c569355a03fbef311ed64f4d895fdf5e[m
+Author: Motues <2901987286@qq.com>
+Date:   Thu Aug 29 14:28:22 2024 +0800
+
+    reference and template
+
+[33mcommit ba2012479206dc4e02f4279157dd831575ad3eb2[m
+Author: Motues <2901987286@qq.com>
+Date:   Tue Aug 20 23:17:44 2024 +0800
+
+    Modify draft
+
+[33mcommit a2a99a6542fcd642845e92799a682d09a984cacc[m
+Author: Motues <2901987286@qq.com>
+Date:   Tue Aug 20 23:15:28 2024 +0800
+
+    Modern C++
+
+[33mcommit 6b079f78998faf4ff9421ef0b65bd01dd2c05d46[m
+Author: Motues <2901987286@qq.com>
+Date:   Tue Aug 20 23:15:17 2024 +0800
+
+    Modify
+
+[33mcommit 178417ba2e54567ff7a77f04c2ec1a83e78b00a5[m
+Author: Motues <2901987286@qq.com>
+Date:   Tue Aug 20 23:15:01 2024 +0800
+
+    CMake
+
+[33mcommit 765ea3c1c6e09d403129f367ada3280d71f534a0[m
+Author: Motues <2901987286@qq.com>
+Date:   Sun Aug 11 22:36:22 2024 +0800
+
+    update summer study 8.11
+
+[33mcommit cab5125f35c2520ed7cf706c68188b143580fe62[m
+Author: Motues <2901987286@qq.com>
+Date:   Sat Jul 27 22:10:17 2024 +0800
+
+    katex 7-21
+
+[33mcommit 6e162990c157c204609138e790fe8e2e9d78d741[m
+Author: Motues <2901987286@qq.com>
+Date:   Fri Jul 26 23:40:25 2024 +0800
+
+    2024-7-26
+
+[33mcommit 94373b5650d4938d50f8e8dfe2053f89d011a934[m
+Author: Motues <2901987286@qq.com>
+Date:   Thu Jul 25 15:39:33 2024 +0800
+
+    modify readme
+
+[33mcommit a83ef041d03afb9e9ee750d634f7585d841afa9b[m
+Author: Motues <2901987286@qq.com>
+Date:   Thu Jul 25 15:34:05 2024 +0800
+
+    fonts
+
+[33mcommit b25a8cb0af580d5cafa7bb9b14bf90b9bbb06929[m
+Author: Motues <2901987286@qq.com>
+Date:   Thu Jul 25 14:53:25 2024 +0800
+
+    font
+
+[33mcommit 51d5793d6fbbb4c57654231a92e7ceb6f09dd192[m
+Author: Motues <2901987286@qq.com>
+Date:   Thu Jul 25 00:41:20 2024 +0800
+
+    KaTex post
+
+[33mcommit 19f9d96d6f230e7838f533ae6387534f720aaa5b[m
+Author: Motues <2901987286@qq.com>
+Date:   Wed Jul 24 15:12:58 2024 +0800
+
+    modify post time
+
+[33mcommit 7a2dd6803174464358ec09dfffde147fc7138e6c[m
+Author: Motues <2901987286@qq.com>
+Date:   Wed Jul 24 15:09:22 2024 +0800
+
+    markdown post
+
+[33mcommit 1453bf3532463a07fe1a54d5886f0f09c317ae6c[m
+Author: Motues <2901987286@qq.com>
+Date:   Tue Jul 23 17:08:05 2024 +0800
+
+    modify verilog post
+
+[33mcommit 96e3235f33a7b33f6369a72ab12cbf71f6e37d96[m
+Author: Motues <2901987286@qq.com>
+Date:   Tue Jul 23 16:43:35 2024 +0800
+
+    add verilog post
+
+[33mcommit 0c3f946075b6d3d9db74abcaa0665b088b17ff94[m
+Author: Motues <2901987286@qq.com>
+Date:   Mon Jul 22 14:19:48 2024 +0800
+
+    modify-font and verilog post
+
+[33mcommit 35848bf2dc51581bfcf804c8af1e44a1d7548ae7[m
+Author: Motues <2901987286@qq.com>
+Date:   Fri Jul 19 17:12:27 2024 +0800
+
+    add intro
+
+[33mcommit 22c10547a19f671979590dfa402a707f15de133c[m
+Author: Motues <2901987286@qq.com>
+Date:   Fri Jul 19 16:36:05 2024 +0800
+
+    modify md
+
+[33mcommit c807111685eadd76583130b6e69d7782f4384b88[m
+Author: Motues <2901987286@qq.com>
+Date:   Fri Jul 19 16:21:49 2024 +0800
+
+    2024-7-19
+
+[33mcommit 7850c651844517273844e0f95063e5a673afe8df[m
+Author: Motues <2901987286@qq.com>
+Date:   Tue Jul 16 22:54:07 2024 +0800
+
+    yaml
+
+[33mcommit 8b5b129447702137e116a8d469c6440a828ac23e[m
+Author: Motues <2901987286@qq.com>
+Date:   Tue Jul 16 22:51:27 2024 +0800
+
+    package.js
+
+[33mcommit 3096559a4d93b0433cc5fb2f1bd005a0bf86aee0[m
+Author: Motues <2901987286@qq.com>
+Date:   Tue Jul 16 22:47:47 2024 +0800
+
+    V3.0
+
+[33mcommit 9464494f1a16ced3e761842aacc004a314f65457[m
+Author: Motues <2901987286@qq.com>
+Date:   Tue Jul 16 22:29:51 2024 +0800
+
+    delete v2
+
+[33mcommit d9b3bb8d9b3ac655eb8e282c554d14046eec2bf6[m
+Author: Motues <164032838+Motues@users.noreply.github.com>
+Date:   Sat Jul 13 22:28:43 2024 +0800
+
+    Update README.md
+    
+    README
+
+[33mcommit 78e5bb2668aa7d9096beb6741872dfaedacd179b[m
+Author: Motues <2901987286@qq.com>
+Date:   Sat Jul 13 22:20:35 2024 +0800
+
+    m
+
+[33mcommit ccee4c9a4f13c2d530ae5d53feb1aa79dd2f4d8d[m
+Author: Motues <2901987286@qq.com>
+Date:   Sat Jul 13 21:39:54 2024 +0800
+
+    V2.01
+
+[33mcommit 2b957d0ca8990073c1885f3b9a4943f37a5bf68c[m
+Author: Motues <2901987286@qq.com>
+Date:   Sat Jul 13 21:31:57 2024 +0800
+
+    Delete all
+
+[33mcommit ecab7a63f3d4ed194fcb5cded8c6e19cc83766e9[m
+Author: Motues <2901987286@qq.com>
+Date:   Sat Jul 13 21:02:13 2024 +0800
+
+    2024-7-13
+
+[33mcommit 541e9f62d27903702cd68947c3e5a2a2c74c1bc0[m
+Author: Motues <2901987286@qq.com>
+Date:   Fri Jul 12 01:28:24 2024 +0800
+
+    index
+
+[33mcommit 2b3d47d6acf72bb12054db7c62ce66c9cf2a08b6[m
+Author: Motues <2901987286@qq.com>
+Date:   Fri Jul 12 01:16:58 2024 +0800
+
+    index
+
+[33mcommit 4f683bf14b0905e2492a25348c693dda1d79b8c5[m
+Author: Motues <2901987286@qq.com>
+Date:   Fri Jul 12 01:11:58 2024 +0800
+
+    Update posts
+
+[33mcommit 44a867b1966e7010f434a88ee36b9f78a52289df[m
+Author: Motues <2901987286@qq.com>
+Date:   Thu Jul 11 23:33:26 2024 +0800
+
+    2024-7-11
+
+[33mcommit d79be277e22664d6edacb42c3c38727e7fa790d0[m
+Author: Motues <2901987286@qq.com>
+Date:   Thu Jul 11 15:32:31 2024 +0800
+
+    change domain
+
+[33mcommit b513dbc9f21221e230d8af51f65b78c367f3acd2[m
+Author: Motues <2901987286@qq.com>
+Date:   Thu Jul 11 00:58:45 2024 +0800
+
+    update package.json
+
+[33mcommit 62f430207bb140e2afd894474c05a635264099da[m
+Author: Motues <2901987286@qq.com>
+Date:   Thu Jul 11 00:49:27 2024 +0800
+
+    V2.1
+
+[33mcommit b5a2be33bdea40c57c8a7836e17bfc812973f478[m
+Author: Motues <164032838+Motues@users.noreply.github.com>
+Date:   Wed Jul 10 23:35:51 2024 +0800
+
+    Update deploy.yml
+
+[33mcommit 4e48505ced9d12fd98e1565f91086e50b044c1fe[m
+Author: Motues <164032838+Motues@users.noreply.github.com>
+Date:   Wed Jul 10 23:28:53 2024 +0800
+
+    Create deploy.yml
+
+[33mcommit bb20964a963caf0aedc5c19ab5ffe49182cdfd98[m
+Author: Motues <2901987286@qq.com>
+Date:   Wed Jul 10 23:20:21 2024 +0800
+
+    V2.0
+
+[33mcommit 5e66c3ec82071189c06daab60857b82b547cefd9[m
+Author: Motues <2901987286@qq.com>
+Date:   Wed Jul 10 23:16:47 2024 +0800
+
+    delete V1.0
+
+[33mcommit a31273446b213793d29a9e378cc8dfc073616e03[m
+Author: Motues <2901987286@qq.com>
+Date:   Mon Jul 8 23:00:36 2024 +0800
+
+    modify 
