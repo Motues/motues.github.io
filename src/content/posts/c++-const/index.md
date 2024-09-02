@@ -7,6 +7,7 @@ tags: ["C++"]
 category: 编程
 draft: false
 ---
+
 ## const关键字
 `const`关键字在C++中用于定义常量或者指定某些对象或变量的不可变性，主要有以下几个用途：修饰变量、修饰指针和修饰函数（包括函数参数、函数返回值和成员函数）。
 
@@ -83,7 +84,7 @@ constexpr int a = 1; // a是常量表达式
 constexpr int Square(const int x) {
     return x * x;
 }
-constexpr int result = Square(4); // 编译时计算结果为16
+int result = Square(4); // 编译时计算结果为16
 ```
 
 ### 函数模板
