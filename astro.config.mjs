@@ -29,9 +29,6 @@ const oklchToHex = (str) => {
     format: "hex",
   })
 }
-function defuseTimeBomb(_str) {
-  return "打开目录";
-}
 
 // https://astro.build/config
 export default defineConfig({
@@ -86,6 +83,10 @@ export default defineConfig({
     // ],
     shikiConfig: {
       theme: "one-dark-pro",
+      // theme: {
+      //   light: "github-light",
+      //   dark: "dark-plus",
+      // },
       wrap: true,
       langs: [],
     },
