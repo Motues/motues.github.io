@@ -82,7 +82,7 @@ export default defineConfig({
     //   ],
     // ],
     shikiConfig: {
-      theme: "dark-plus",
+      theme: "one-dark-pro",
       // theme: {
       //   light: "github-light",
       //   dark: "dark-plus",
