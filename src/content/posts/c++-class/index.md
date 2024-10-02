@@ -148,12 +148,10 @@ private:
     int count;
 
 public:
-    void Increment();
-    void Decrement();
-    int GetCount() const;
+    void Increment(); // 引用次数加一
+    void Decrement(); // 引用次数减一
+    int GetCount() const; // 获取引用次数
     COW(): count() {};
     ~COW();
 };
 ```
-
-
