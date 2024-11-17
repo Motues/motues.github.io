@@ -1,13 +1,13 @@
 ---
-import '@fontsource-variable/jetbrains-mono';
-import '@fontsource-variable/jetbrains-mono/wght-italic.css';
+import '@fontsource-variable/jetbrains-mono'
+import '@fontsource-variable/jetbrains-mono/wght-italic.css'
 
 interface Props {
-    class: string;
+  class: string
 }
-const className = Astro.props.class;
+const className = Astro.props.class
 ---
-<div data-pagefind-body class=`prose dark:prose-invert prose-base max-w-none custom-md ${className}`>
+<div data-pagefind-body class=`prose dark:prose-invert prose-base !max-w-none custom-md ${className}`>
     <!--<div class="prose dark:prose-invert max-w-none custom-md">-->
     <!--<div class="max-w-none custom-md">-->
     <slot/>
@@ -46,17 +46,14 @@ const className = Astro.props.class;
       wrapper.appendChild(codeBlock);
       wrapper.appendChild(copyButton);
 
-      let timeout: string | number | NodeJS.Timeout | undefined;
+      let timeout: ReturnType<typeof setTimeout>;
       copyButton.addEventListener("click", async () => {
         if (timeout) {
             clearTimeout(timeout);
         }
         let text = codeBlock?.querySelector("code")?.innerText;
-        if (text !== undefined && text !== '') {
-          await navigator.clipboard.writeText(text);
-        } else {
-          // 处理 text 为 undefined 或空字符串的情况
-        }
+        if (text === undefined) return;
+        await navigator.clipboard.writeText(text);
         copyButton.classList.add("success");
         timeout = setTimeout(() => {
           copyButton.classList.remove("success");
@@ -68,46 +65,7 @@ const className = Astro.props.class;
   }
 </script>
 
-<!-- Styles for copy-code-button -->
-<style lang="css" is:global>
-    @tailwind base;
-    @tailwind components;
-    @tailwind utilities;
-
-    @layer components {
-        .btn-regular-dark {
-            @apply flex items-center justify-center
-            bg-[oklch(0.45_0.01_var(--hue))] hover:bg-[oklch(0.50_0.01_var(--hue))] active:bg-[oklch(0.55_0.01_var(--hue))]
-            dark:bg-[oklch(0.30_0.02_var(--hue))] dark:hover:bg-[oklch(0.35_0.03_var(--hue))] dark:active:bg-[oklch(0.40_0.03_var(--hue))]
-        }
-        .btn-regular-dark.success {
-            @apply bg-[oklch(0.75_0.14_var(--hue))] dark:bg-[oklch(0.75_0.14_var(--hue))]
-        }
-
-        .copy-btn-icon {
-            @apply absolute top-1/2 left-1/2 transition -translate-x-1/2 -translate-y-1/2
-        }
-        .copy-btn .copy-icon {
-            @apply opacity-100 fill-white dark:fill-white/75
-        }
-        .copy-btn.success .copy-icon {
-            @apply opacity-0 fill-[var(--deep-text)]
-        }
-        .copy-btn .success-icon {
-            @apply opacity-0
-        }
-        .copy-btn.success .success-icon {
-            @apply opacity-100
-        }
-    }
-</style>
-
 <style lang="stylus" is:global>
-  .katex {
-    font-size: 1.1em
-    font-family: "KaTeX_Main", Times New Roman, Times, serif;
-  }
-
   .custom-md
     h1, h2, h3, h4, h5, h6
       .anchor
@@ -161,7 +119,8 @@ const className = Astro.props.class;
         text-decoration-color: var(--link-active)
 
     code
-      font-family: Consolas, 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, Monaco, Liberation Mono, Courier New, monospace
+      font-family: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace
+      font-variant-ligatures: none
       background: var(--inline-code-bg)
       color: var(--inline-code-color)
       padding: 0.125rem 0.25rem
@@ -450,22 +409,21 @@ const className = Astro.props.class;
     opacity: 0.7
     transition: opacity 0.15s ease-in-out
 
-    .gc-description, .gc-infobar
+    .gc-description, .gc-infobar, .gc-avatar
       background-color: var(--tw-prose-body)
       color: transparent
       opacity: 0.5;
-      border-radius: 0.5rem
       animation: pulsate 2s infinite linear
       user-select: none
 
       &:before
         background-color: transparent
 
-    .gc-avatar
-      display: none
-
     .gc-repo
       margin-left: -0.1rem
+
+    .gc-description, .gc-infobar
+      border-radius: 0.5rem
 
   a.card-github.fetch-error
     pointer-events: all
@@ -483,18 +441,5 @@ const className = Astro.props.class;
     transition-property: all
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
     transition-duration: 0.15s
-
-</style>
-
-<style lang="css" is:global>
-    @tailwind base;
-    @tailwind components;
-    @tailwind utilities;
-
-    @layer components {
-        .custom-md h1 {
-            @apply text-3xl
-        }
-    }
 
 </style>

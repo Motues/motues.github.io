@@ -22,5 +22,6 @@ pnpm-debug.log*
 
 .vercel
 
-# VS Code
-.vscode/
+package-lock.json
+bun.lockb
+yarn.lock

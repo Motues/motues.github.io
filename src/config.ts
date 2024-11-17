@@ -8,16 +8,25 @@ import { LinkPreset } from './types/config'
 
 export const siteConfig: SiteConfig = {
   title: 'Motues',
-  subtitle: "Motues' blog",
-  lang: 'zh_CN',         // 'en', 'zh_CN', 'zh_TW', 'ja'
+  subtitle: "Motues's Blog",
+  lang: 'zh_CN',         // 'en', 'zh_CN', 'zh_TW', 'ja', 'ko'
   themeColor: {
-    hue: 200,         // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
+    hue: 250,         // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
     fixed: false,     // Hide the theme color picker for visitors
   },
   banner: {
     enable: true,
     src: 'assets/images/bg1.jpg',   // Relative to the /src directory. Relative to the /public directory if it starts with '/'
-    position: 'center', // Equivalent to object-position, defaults center
+    position: 'center',      // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
+    credit: {
+      enable: false,         // Display the credit text of the banner image
+      text: '',              // Credit text to be displayed
+      url: ''                // (Optional) URL link to the original artwork or artist's page
+    }
+  },
+  toc: {
+    enable: true,           // Display the table of contents on the right side of the post
+    depth: 2                // Maximum heading depth to show in the table, from 1 to 3
   },
   favicon: [    // Leave this array empty to use the default favicon
     // {
@@ -36,7 +45,7 @@ export const navBarConfig: NavBarConfig = {
     LinkPreset.Link,
     // {
     //   name: 'GitHub',
-    //   url: 'https://github.com/motues',     // Internal links should not include the base path, as it is automatically added
+    //   url: 'https://github.com/saicaca/fuwari',     // Internal links should not include the base path, as it is automatically added
     //   external: true,                               // Show an external link icon and will open in a new tab
     // },
   ],
