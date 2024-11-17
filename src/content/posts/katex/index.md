@@ -11,10 +11,10 @@ draft: false
 目前仍在搬运，预计在暑假结束完成基本语法的内容。
 :::
 
-## 0 Katex简介
+## Katex简介
 根据 [官网](https://katex.org/) 的介绍，$\KaTeX$是一个快速、易用的 JavaScript 库，用于在网络上渲染$\TeX$数学图像。其语法与$\LaTeX$类似，对于熟悉$\LaTeX$的用户来说，使用起来非常简单。
 
-## 1 声调记号
+## 声调记号
 | 第一列 | 第二列 | 第三列 |
 |:---|:---|:---|
 | $a'$ `a'` | $\tilde{a}$ `\tilde{a}` | $\mathring{g}$ `\mathring{g}` |
@@ -37,7 +37,7 @@ draft: false
 | $\text{\`{a}}$ ```\`{a}``` | $\text{\={a}}$ `\={a}` | $\text{\"{a}}$ `\"{a}` | $\text{\v{a}}$ `\v{a}` |
 | $\text{\^{a}}$ `\^{a}` | $\text{\u{a}}$ `\u{a}` | $\text{\r{a}}$ `\r{a}` |  |
 
-## 2 界定符（括号、箭头）
+## 界定符（括号、箭头）
 | 第一列 | 第二列 | 第三列 | 第四列 | 第五列 |
 |:---|:---|:---|:---|:---|
 | $( )$ `( )` | $\lparen \rparen$ `\lparen \rparen` | $⌈ ⌉$ `⌈  ⌉` | $\lceil \rceil$ `\lceil rceil` | $\uparrow$ `\uparrow` |
@@ -61,7 +61,7 @@ draft: false
 $\left(\LARGE{AB}\right)$  `\left(\LARGE{AB}\right)`  
 $( \big( \Big( \bigg( \Bigg($  `( \big( \Big( \bigg( \Bigg(`  
 
-## 3 环境
+## 环境
 
 | 第一列 | 第二列 | 第三列 | 第四列 |
 | :----------- | :----------- | :----------- | :----------- |
@@ -72,7 +72,7 @@ $( \big( \Big( \bigg( \Bigg($  `( \big( \Big( \bigg( \Bigg(`
 | $\begin{aligned}a&=b+c \\d+e&=f\end{aligned}$ | $\begin{aligned}&\tt\backslash \{aligned\}\\&\tt\quad a\&=b+c \backslash \backslash \\&\tt\quad d+e\&=f\\&\tt\backslash end\{aligned\}\\\end{aligned}$ | $\begin{alignedat}{2}10&x+ &3&y = 2 \\3&x+&13&y = 4\end{alignedat}$ | $\begin{aligned}&\tt\backslash begin\{alignedat\}\{2\}\\&\tt\quad 10\&x+ \&3\&y = 2 \backslash \backslash \\&\tt\quad 3\&x+\&13\&y = 4\\&\tt\backslash end\{alignedat\}\\\end{aligned}$ |
 | $\begin{gathered}a=b \\e=b+c\end{gathered}$ | $\begin{aligned}&\tt\backslash begin\{gathered\}\\&\tt\quad a=b \backslash\backslash\\&\tt\quad e=b+c\\&\tt\backslash end\{gathered\}\\\end{aligned}$ | $x = \begin{cases}a &\text{if } b \\c &\text{if } d\end{cases}$ | $\begin{aligned}&\tt x = \backslash begin\{cases\} \\&\tt\quad a \&\text\{if \} b \backslash\backslash \\&\tt\quad c \&\text\{if \} d\\&\tt\backslash end{cases}\\\end{aligned}$ |
 
-## 4 字母和符号
+## 字母和符号
 
 ### 希腊字母
 直接输出：  

@@ -8,11 +8,11 @@ category: 编程
 draft: false
 ---
 
-## 0 环境配置
+## 环境配置
 
-## 1 基本概念
+## 基本概念
 
-### 1.1 概述
+### 概述
 
 行为树（Behavior Tree, BT）是一种用于构建自主代理（例如机器人或电脑游戏中非玩家控制的角色）决策过程的形式化图形建模语言。与有限状态机不同，行为树是控制“任务”执行流程的**分层节点树**。
 
@@ -24,7 +24,7 @@ draft: false
 * 广泛的应用领域：最初应用于视频游戏中的NPC控制，现在也被广泛应用于机器人技术、自动化系统等领域。
 
 
-### 1.2 基本组成
+### 基本组成
 
 下图展现了一个基本的行为树结构：
 
@@ -72,7 +72,7 @@ draft: false
 </div>
 
 
-### 1.3 执行流程
+### 执行流程
 
 <div style="display: flex; justify-content: center;">
 <img src="https://www.behaviortree.dev/assets/images/sequence_animation-4155a892772542caf81fa16c824c91f8.svg"  width="60%" height="60%" />
@@ -87,7 +87,7 @@ draft: false
 条件节点（Condition）只能返回成功或失败，不能返回运行中。
 :::
 
-### 1.4 示例
+### 示例
 
 假设现在有一个机器人需要去搜索一个物品。
 
@@ -110,7 +110,7 @@ draft: false
 
 在上图，引入了**显式成功条件（explicit success condition）**，即在执行动作前总是先进行条件检测。比如，先检测机器人是否已经在A处，如果在就不执行去A处的动作，直接返回成功状态。一般使用选择节点（Fallback）和条件节点（Condition）构成。
 
-### 1.5 修饰节点（Decorator）和黑板（Blackboard）
+### 修饰节点（Decorator）和黑板（Blackboard）
 
 考虑上面的行为树，我们可以发现，如果区域很多并且会动态修改，这样每次更新行为树时，都需要修改节点，非常麻烦。为了解决这个问题，我们可以使用黑板（Blackboard）来存储动态数据，并通过修饰节点（Decorator）来修改行为树。
 
@@ -123,7 +123,7 @@ draft: false
 <img src="https://robohub.org/wp-content/uploads/2021/08/bt_mobile_robot_blackboard.png"  width="90%" height="90%" />
 </div>
 
-## 2 BehaviorTree.CPP
+## BehaviorTree.CPP
 
 [BehaviorTree.CPP](https://www.behaviortree.dev/)是一个开源的C++库,用于构建行为树。
 
