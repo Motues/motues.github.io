@@ -55,7 +55,7 @@ draft: false
 #### 执行节点
 执行节点（execution node）：行为树的叶子节点，可以是动作节点（Action）或条件节点（Condition）。
 
-*** 动作节点（Action）**：执行一个动作，例如，向一个目标移动、攻击、使用物品等。
+* **动作节点（Action**：执行一个动作，例如，向一个目标移动、攻击、使用物品等。
 * **条件节点（Condition）**：检查一个条件，例如，玩家是否在攻击范围内、是否已到达目标位置等。
 
 | 节点类型 | 子节点数量 | 描述 |
@@ -122,6 +122,10 @@ draft: false
 <div style="display: flex; justify-content: center;">
 <img src="https://robohub.org/wp-content/uploads/2021/08/bt_mobile_robot_blackboard.png"  width="90%" height="90%" />
 </div>
+
+## 2 BehaviorTree.CPP
+
+[BehaviorTree.CPP](https://www.behaviortree.dev/)是一个开源的C++库,用于构建行为树。
 
 
 ## 参考文章
