@@ -125,7 +125,190 @@ draft: false
 
 ## BehaviorTree.CPP
 
+> 参考文档：[*BehaviorTree Docs*](https://www.behaviortree.dev/docs/intro)
+
 [BehaviorTree.CPP](https://www.behaviortree.dev/)是一个开源的C++库,用于构建行为树。
+
+### `xml`脚本储存树结构
+
+行为树通过xml脚本构建，xml脚本的语法分为`compact`和`explicit`两种，前者结构简单，后者包含消息更多，方便软件读取。xml脚本的格式如下：
+
+```xml
+<root BTCPP_format="4" >
+    <BehaviorTree ID="MainTree">
+        <Sequence name="root_sequence">
+            <Action ID="SaySomething"   name="action_hello" message="Hello"/>
+            <Action ID="OpenGripper"    name="open_gripper"/>
+            <Action ID="ApproachObject" name="approach_object"/>
+            <Action ID="CloseGripper"   name="close_gripper"/>
+        </Sequence>
+    </BehaviorTree>
+</root>
+```
+
+* `BTCPP_format`是必须的，它表示当前xml脚本的版本，目前支持4；
+* `<BehaviorTree>`，`<Action/>`，`<Sequence/>`等表示了这个节点的类型；
+* `ID`描述了节点的类型，这些类型为之前在程序里面注册过的，`name`表示节点的名字，这个名字是必须的，并且不能重复；
+* `messaage`用于在不同节点之间传递的消息，对因为黑板里面的数据
+
+为了方便使用Groot软件编写，这里采用explicit语法。
+
+#### 子树
+
+我们可以将一些节点组合成一个子树，子树可以嵌套，子树也可以作为节点参数传入，以此来降低行为树的复杂度。
+
+```xml
+ <root BTCPP_format="4" >
+ 
+     <BehaviorTree ID="MainTree">
+        <Sequence>
+           <Action  ID="SaySomething"  message="Hello World"/>
+           <SubTree ID="GraspObject"/>
+        </Sequence>
+     </BehaviorTree>
+     
+     <BehaviorTree ID="GraspObject">
+        <Sequence>
+           <Action ID="OpenGripper"/>
+           <Action ID="ApproachObject"/>
+           <Action ID="CloseGripper"/>
+        </Sequence>
+     </BehaviorTree>  
+ </root>
+```
+
+#### 外部文件
+
+在一个xm文件里面。可以使用其他文件的树结构，使用标签如下：
+
+```xml
+<include path="path_to_another_xml"/>
+```
+
+将前面两个树结构拆分两个文件，如下所示：
+
+```xml
+<!-- file maintree.xml -->
+
+<root BTCPP_format="4" >
+     
+    <include path="grasp.xml"/>
+     
+    <BehaviorTree ID="MainTree">
+        <Sequence>
+           <Action  ID="SaySomething"  message="Hello World"/>
+           <SubTree ID="GraspObject"/>
+        </Sequence>
+    </BehaviorTree>
+</root>
+```
+
+```xml
+ <!-- file grasp.xml -->
+
+<root BTCPP_format="4" >
+    <BehaviorTree ID="GraspObject">
+        <Sequence>
+           <Action ID="OpenGripper"/>
+           <Action ID="ApproachObject"/>
+           <Action ID="CloseGripper"/>
+        </Sequence>
+    </BehaviorTree>  
+</root>
+```
+
+:::note[注意]
+如果你想在 ROS 包中查找文件，您可以使用以下语法：
+```xml
+<include ros_pkg="name_package" path="path_to_file"/>
+```
+:::
+
+### 在CPP里面使用
+
+cmake里面需要添加：
+
+```cmake
+find_package(behaviortree_cpp REQUIRED)
+target_link_libraries(executable_name BT::behaviortree_cpp)
+```
+
+在CPP里面使用：
+```c++
+#include "behaviortree_cpp/bt_factory.h"
+
+using namespace BT; // optional
+```
+
+库处于命名空间`BT`里面，为了避免污染命名空间，建议不要直接使用`using namespace BT;`。
+
+### 节点状态
+
+在BehaviorTree.CPP中，节点的状态通过`enum class NodeStatus`来表示，在头文件`<behaviortree_cpp/basic_types.h>`中定义，官方实现如下：
+
+```cpp
+/// Enumerates the possible types of nodes
+enum class NodeStatus
+{
+  IDLE = 0,
+  RUNNING = 1,
+  SUCCESS = 2,
+  FAILURE = 3,
+  SKIPPED = 4,
+};
+```
+
+我们可以通过自定义函数来实现状态的返回，如下所示：
+
+```c++
+BT::NodeStatus CheckBattery()
+{
+  std::cout << "[ Battery: OK ]" << std::endl;
+  return BT::NodeStatus::SUCCESS;
+}
+```
+
+### 节点类型
+
+在BehaviorTree.CPP中，节点的对应关系如下：
+
+| 节点类型 | CPP 类名 |
+| :---: | :---: |
+| 动作节点（Action） | `BT::SyncActionNode` |
+| 条件节点（Condition） | `BT::ConditionNode` |
+| 控制节点（Control） | `BT::ControlNode` |
+| 修饰节点（Decorator） | `BT::DecoratorNode` |
+
+分别在头文件`<behaviortree_cpp/action_node.h>`、`<behaviortree_cpp/condition_node.h>`等定义。在CPP程序里面，我们需要通过继承来实现不同的动作节点和条件节点；控制节点和修饰节点通过xml文件来配置。  
+之后将会具体介绍如何实现自定义节点。
+
+如下简单展示了一个动作节点的实现：
+
+```c++
+// Example of custom SyncActionNode (synchronous action)
+// without ports.
+class ApproachObject : public BT::SyncActionNode
+{
+public:
+  ApproachObject(const std::string& name) :
+      SyncActionNode(name, {})
+  {}
+
+  // You must override the virtual function tick()
+  BT::NodeStatus tick() override
+  {
+    std::cout << "ApproachObject: " << this->name() << std::endl;
+    return BT::NodeStatus::SUCCESS;
+  }
+};
+```
+
+
+
+
+
+
+
 
 
 ## 参考文章
