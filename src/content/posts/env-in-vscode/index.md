@@ -18,8 +18,8 @@ draft: false
 
 ### 安装C++编译器
 
-这里推荐使用 **MinGW64** 作为C++编译器，可以点击 [这里](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-win32/seh/x86_64-8.1.0-release-win32-seh-rt_v6-rev0.7z) 下载。  
-解压后得到一个名称为`mingw64`的文件夹，大小约436MB，将这个文件夹放置在一个你可以找到的目录下，并添加到环境变量中。
+这里推荐使用 **MinGW64** 作为C++编译器，可以点击 [这里](https://github.com/niXman/mingw-builds-binaries/releases/download/14.2.0-rt_v12-rev0/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev0.7z) 下载。  
+解压后得到一个名称为`mingw64`的文件夹，大小约665MB，将这个文件夹放置在一个你可以找到的目录下，并添加到环境变量中。
 
 配置环境变量时只需要将`\mingw64\bin`的路径添加到用户变量的 `PATH`即可，如下图所示。
 ![mingw](./images/mingw-path.png)
