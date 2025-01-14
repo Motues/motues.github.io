@@ -75,7 +75,7 @@ export default defineConfig({
       //   light: "github-light",
       //   dark: "dark-plus",
       // },
-      wrap: true,
+      wrap: false,
       langs: [],
     },
     remarkPlugins: [
