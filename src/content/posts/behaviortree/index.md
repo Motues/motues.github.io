@@ -8,8 +8,6 @@ category: 编程
 draft: false
 ---
 
-## 环境配置
-
 ## 基本概念
 
 ### 概述
@@ -127,14 +125,14 @@ draft: false
 
 > 参考文档：[*BehaviorTree Docs*](https://www.behaviortree.dev/docs/intro)
 
-[BehaviorTree.CPP](https://www.behaviortree.dev/)是一个开源的C++库,用于构建行为树。
+[BehaviorTree.CPP](https://www.behaviortree.dev/)是一个开源的C++库，用于构建行为树。本文的行为树版本为`3.8.7`。
 
 ### `xml`脚本储存树结构
 
 行为树通过xml脚本构建，xml脚本的语法分为`compact`和`explicit`两种，前者结构简单，后者包含消息更多，方便软件读取。xml脚本的格式如下：
 
 ```xml
-<root BTCPP_format="4" >
+<root main_tree_to_execute = "MainTree">
     <BehaviorTree ID="MainTree">
         <Sequence name="root_sequence">
             <Action ID="SaySomething"   name="action_hello" message="Hello"/>
@@ -146,7 +144,6 @@ draft: false
 </root>
 ```
 
-* `BTCPP_format`是必须的，它表示当前xml脚本的版本，目前支持4；
 * `<BehaviorTree>`，`<Action/>`，`<Sequence/>`等表示了这个节点的类型；
 * `ID`描述了节点的类型，这些类型为之前在程序里面注册过的，`name`表示节点的名字，这个名字是必须的，并且不能重复；
 * `messaage`用于在不同节点之间传递的消息，对因为黑板里面的数据
@@ -158,7 +155,7 @@ draft: false
 我们可以将一些节点组合成一个子树，子树可以嵌套，子树也可以作为节点参数传入，以此来降低行为树的复杂度。
 
 ```xml
- <root BTCPP_format="4" >
+ <root main_tree_to_execute = "MainTree" >
  
      <BehaviorTree ID="MainTree">
         <Sequence>
@@ -190,7 +187,7 @@ draft: false
 ```xml
 <!-- file maintree.xml -->
 
-<root BTCPP_format="4" >
+<root main_tree_to_execute = "MainTree" >
      
     <include path="grasp.xml"/>
      
@@ -229,13 +226,13 @@ draft: false
 cmake里面需要添加：
 
 ```cmake
-find_package(behaviortree_cpp REQUIRED)
-target_link_libraries(executable_name BT::behaviortree_cpp)
+find_package(behaviortree_cpp_v3 REQUIRED)
+target_link_libraries(executable_name BT::behaviortree_cpp_v3)
 ```
 
 在CPP里面使用：
 ```c++
-#include "behaviortree_cpp/bt_factory.h"
+#include "behaviortree_cpp_v3/bt_factory.h"
 
 using namespace BT; // optional
 ```
@@ -244,7 +241,7 @@ using namespace BT; // optional
 
 ### 节点状态
 
-在BehaviorTree.CPP中，节点的状态通过`enum class NodeStatus`来表示，在头文件`<behaviortree_cpp/basic_types.h>`中定义，官方实现如下：
+在BehaviorTree.CPP中，节点的状态通过`enum class NodeStatus`来表示，在头文件`<behaviortree_cpp_v3/basic_types.h>`中定义，官方实现如下：
 
 ```cpp
 /// Enumerates the possible types of nodes
@@ -279,7 +276,7 @@ BT::NodeStatus CheckBattery()
 | 控制节点（Control） | `BT::ControlNode` |
 | 修饰节点（Decorator） | `BT::DecoratorNode` |
 
-分别在头文件`<behaviortree_cpp/action_node.h>`、`<behaviortree_cpp/condition_node.h>`等定义。在CPP程序里面，我们需要通过继承来实现不同的动作节点和条件节点；控制节点和修饰节点通过xml文件来配置。  
+分别在头文件`<behaviortree_cpp_v3/action_node.h>`、`<behaviortree_cpp_v3/condition_node.h>`等定义。在CPP程序里面，我们需要通过继承来实现不同的动作节点和条件节点；控制节点和修饰节点通过xml文件来配置。  
 之后将会具体介绍如何实现自定义节点。
 
 如下简单展示了一个动作节点的实现：
@@ -303,10 +300,52 @@ public:
 };
 ```
 
+## 环境安装
 
+下载[BehaviorTree.CPP](https://github.com/BehaviorTree/BehaviorTree.CPP/releases/3.8.7)，版本为3.8。
+下载[Groot](https://github.com/BehaviorTree/Groot)。
 
+### 安装BehaviorTree.CPP
 
+先将下载的BehaviorTree.CPP解压，进入目录然后执行以下命令：
+```bash
+mkdir Build
+cd Build
+cmake ..
+make
+sudo make install
+```
 
+### 安装Groot
+
+安装依赖
+```bash
+sudo apt install qtbase5-dev libqt5svg5-dev libzmq3-dev libdw-dev
+```
+
+下载Groot，解压，进入目录，并运行。
+```bash
+git clone --recurse-submodules https://github.com/BehaviorTree/Groot.git
+cd Groot
+cmake -S . -B build
+cmake --build build
+```
+
+### 问题
+
+1. 在编译Groot的时候，出现以下错误：
+   ```bash
+   /usr/bin/ld: 找不到 -lncurses: 没有那个文件或目录
+   /usr/bin/ld: 找不到 -lncursesw: 没有那个文件或目录
+   /usr/bin/ld: 找不到 -ltinfo: 没有那个文件或目录
+   ```
+   从新安装ncurses-dev即可。
+   ```bash
+   sudo apt update
+   sudo apt install libncurses-dev
+   ```
+
+2. 遇到奇奇怪怪的问题，可以先把build清理掉，从新再试一次。
 
 
 
@@ -316,3 +355,4 @@ public:
 > [1] [BehaviorTree.CPP](https://www.behaviortree.dev/)  
 > [2] [Introduction to behavior trees](https://robohub.org/introduction-to-behavior-trees/)  
 > [3] [*Behavior Trees in Robotics and AI: An Introduction*](https://arxiv.org/pdf/1709.00084)
+> [4] [Groot行为树UI编辑器安装教程](https://blog.csdn.net/Netceor/article/details/129483160)
