@@ -18,4 +18,4 @@ Made by Motues.
 
 Designed by [Saicaca](https://github.com/saicaca).
 
-Powered by [Astro](https://astro.bulid/) and [GitHub](https://pages.github.com/).
+Powered by [Astro](https://astro.build/) and [GitHub](https://pages.github.com/).
