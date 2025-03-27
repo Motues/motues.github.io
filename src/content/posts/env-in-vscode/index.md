@@ -30,12 +30,10 @@ draft: false
 ### 安装VSCode插件
 
 打开VSCode，点击左下角的扩展图标，搜索并安装以下插件：
-* `C/C++` 用于配置C++编译器
-* `C/C++ Complie Run` 用于编译运行C++程序
-* `C/C++ Runner` 生成运行文件
-* `CodeLLDB` 调试依赖文件
+* `C/C++` 用于配置C++相关参数
+* `CodeLLDB` 调试依赖插件
 * `Chinese (Simplified)` 汉化，可选
-* `TONGYI Lingma` 大模型，可选，提高效率神器
+* `TONGYI Lingma` 可选，提高效率神器
 
 :::note[注意]
 插件安装完成后，需要重启VSCode。
@@ -74,7 +72,7 @@ int main() {
 此时点击右上角的三角形调试按钮，选择`运行C/C++文件`,在弹出的窗口选择`g++`编译器。
 ![c++](./images/C++runner.png)
 
-此时，会默认生成一个名称为`.vscode`的文件夹，里面有四个文件，分别是`c_cpp_properties.json`、`launch.json`、`tasks.json`和`settings.json`。
+此时，会默认生成一个名称为`.vscode`的文件夹，里面有四个文件，分别是`c_cpp_properties.json`和`tasks.json`。
 
 修改`c_cpp_properties.json`文件，在`includePath`中添`include`文件夹所在路径，如下所示。
 ```json
@@ -94,11 +92,6 @@ int main() {
     "-o",
     "${fileDirname}\\..\\bin\\${fileBasenameNoExtension}.exe"
 ]
-```
-修改`launch.json`文件，将`"configurations"`中的目标工作目录`swd`修改为`${workspaceFolder}/bin`。
-```json
-//launch.json
-"cwd": "${workspaceFolder}/bin"
 ```
 
 此时再去调试就会在下方终端处显示结果，并在`bin`文件夹下生成一个可执行文件。
