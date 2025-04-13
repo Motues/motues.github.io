@@ -1,6 +1,6 @@
 ---
 title: VSCode里的Verilog环境配置
-published: 2025-4-13
+published: 2025-04-13
 description: "如何在VSCode里配置Verilog环境"
 image: ""
 tags: ["Verilog", "VSCode"]
