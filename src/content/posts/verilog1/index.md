@@ -12,6 +12,7 @@ draft: false
 Verilog是一种描述逻辑电路的描述语言，它被设计用来描述逻辑电路的逻辑结构，以及逻辑电路的参数化。
 
 ## verilog基础知识
+
 ### 逻辑值
 在Verilog中，逻辑值主要包括四种，分别是`0`，`1`，`X`，`Z`。
 * 逻辑`0`：表示低电平，对应电路的GND；
@@ -65,7 +66,7 @@ Verilog中运算符与C/C++类似，包括：
     ```verilog
     x === x //为true
     ```
-* 非阻塞赋值`=`常用于组合逻辑，例如`assign`语句和`always@(*)`语句块；阻塞赋值`<=`常用于时序逻辑，例如`always@（posedge clk）`语句块。​​​​​​​
+* 阻塞赋值`=`常用于组合逻辑，例如`assign`语句和`always@(*)`语句块；非阻塞赋值`<=`常用于时序逻辑，例如`always@（posedge clk）`语句块。​​​​​​​
     ```verilog
     wire [11:0] data_in;
     reg [11:0] data_out;
@@ -90,12 +91,12 @@ Verilog中运算符与C/C++类似，包括：
 ### 标识符
 标识符用于定义模块名称、端口名和信号名等，可以由字母、数字、下划线`_`和`$`组成。标识符的第一个字符必须是字母或者下划线，和C/C++一样，区分大小写。
 
-## Verilog基本语法
+### Verilog基础语法
 
 ### 模块
 
-在Verilog中，模块相当于一个函数，对应于一个硬件，用于完成某种特点的操作，比如计数，控制器等。  
-模块的定义如下：
+在Verilog中，模块相当于一个函数，对应于一个硬件，用于完成某种特定的操作，比如计数，控制器等。  
+模块的定义有两种方式，一种直接在括号里面进行I/O端口说明，一种是在函数声明后进行端口说明，如下所示：
 ```verilog
 module module_name (
     input [31:0] data_in, // 输入信号
@@ -103,46 +104,18 @@ module module_name (
     input rst, // 复位信号
     input clk // 时钟信号
     );
-
 endmodule
 ```
-在以上代码，括号里面是I/O端口说明，格式为`输入输出属性` + `数据类型` + `信号位宽` + `信号名称`。
+```verilog
+module module_name (data_in, data_out, rst, clk);
+    input [31:0] data_in;
+    output [31:0] data_out;
+    input rst, clk;
+endmodule
+```
+在以上代码，端口说明格式为`输入输出属性` + `数据类型` + `信号位宽` + `信号名称`。
 * 模块的输入输出属性包括：输入`input`，输出`output`，输入/输出`inout`。
 * 数据类型分为`variable`和`net`类，如果不指定，默认为`wire`。但是在`always`语句和`inital`块中，默认为`reg`。
-
-### `assign`连续赋值语句
-连续赋值语句用于定义一个信号的赋值过程，用assign语句实现；只能对`net`类型的信号赋值。
-```verilog
-wire [31:0] data_out;
-assign data_out = data_in;
-```
-
-### 块语句
-块语句用于定义一个逻辑块，分为两种，分别为顺序块`begin end`和并行快`fork join`。顺序块和并行块的区别在于，顺序块是串行执行，并行块是并行执行。  
-块可以有自己的名字，并通过`disable`关键字禁用。
-```verilog
-always @(posedge clk) begin
-    if (rst) begin
-        count <= 0;
-        disable block_name; // 禁用block_name块
-    end
-    else begin
-        count <= count + 1;
-        if (count == 10) begin
-            count <= 0;
-        end
-    end
-end
-```
-
-### `inital`语句
-`inital`语句用于定义一个初始化过程，在Verilog中，初始化过程会在仿真开始时执行，并且只执行一次。
-```verilog
-initial begin
-    count = 0;
-    rst = 1;
-end
-```
 
 ### always语句
 `always`语句用于描述时序逻辑和组合逻辑，其语为`always @(敏感信号)`，当检测到敏感信号发生变化时，便会执行always块中的语句。
@@ -156,14 +129,27 @@ always @(posedge clk or negedge rst) begin
     end
 end
 ```
+
+### `inital`语句
+`inital`语句用于定义一个初始化过程，在Verilog中，初始化过程会在仿真开始时执行，并且只执行一次。
+```verilog
+initial begin
+    count = 0;
+    rst = 1;
+end
+```
+
 :::note[注意]
 * `inital`语句和`always`语句都会在仿真开始时执行，但是`always`语句块中的语句检测到敏感信号变化时就会执行，而`inital`语句块中的语句会在仿真开始时执行一次。
 * `inital`语句和`always`语句默认生成的信号为`reg`类型。
 :::
 
-### `function`语句
-
-### `task`语句
+### `assign`连续赋值语句
+连续赋值语句用于定义一个信号的赋值过程，用`assign`语句实现；只能对`net`类型的信号赋值。
+```verilog
+wire [31:0] data_out;
+assign data_out = data_in;
+```
 
 ### 条件语句
 Verilog里面的条件语句包括`if else`语句和`case`语句。
@@ -220,17 +206,115 @@ forever begin
 end
 ```
 
-### 模块实例
-
-
-## 预编译语句
+### 块语句
+块语句用于定义一个逻辑块，分为两种，分别为顺序块`begin end`和并行快`fork join`。顺序块和并行块的区别在于，顺序块是串行执行，并行块是并行执行。  
+块可以有自己的名字，并通过`disable`关键字禁用。
+```verilog
+always @(posedge clk) begin
+    if (rst) begin
+        count <= 0;
+        disable block_name; // 禁用block_name块
+    end
+    else begin
+        count <= count + 1;
+        if (count == 10) begin
+            count <= 0;
+        end
+    end
+end
+```
 
 ### `timescale`语句
 `timescale`定义了仿真模型中时间单位和时间精度的标准，该指令通常放在模块的开头，用于指定仿真中的时间单位和精度，用法如下。
 ```verilog
-timescale 1ns/1ps; // 1ns表示仿真时间基本单位，1ps表示仿真时间精度
+`timescale 1ns/1ps // 1ns表示仿真时间基本单位，1ps表示仿真时间精度
 ```
+
+### 模块实例
+
+### `function`语句
+
+### `task`语句
 
 ### `include`语句
 
 ### `define`语句
+
+
+## Verilog仿真流程
+
+Verilog仿真流程分为以下几步：
+1. 编写模块功能代码
+2. 编写仿真测试代码
+3. 仿真工具进行仿真
+
+### 模块功能代码
+模块功能代码一般以`.v`结尾，用于描述模块的功能，包括模块的输入输出端口说明，以及模块的时序逻辑和组合逻辑。  
+下面简单实现一个案件计数器：当按钮按下时，计数器加1；如果rst按钮按下，则计数器清零。
+```verilog
+module Counter (clk, rst, button, count);
+    input clk, rst, button;
+    output reg [31:0] count;
+    reg button_prev; // 用于存储上一个时钟周期的button状态
+
+    initial count = 0;
+
+    always @(posedge clk) begin
+        // 存储当前button状态到button_prev
+        button_prev <= button;
+
+        if (rst) begin
+            count <= 0;
+        end
+        else if (button && !button_prev) begin // 检测button的上升沿
+            count <= count + 1;
+        end
+    end
+endmodule
+```
+
+### 仿真测试代码
+仿真测试代码一般以`.v`结尾，用于描述模块的输入输出信号，以及模块的初始化过程。  
+下面是仿真测试代码的例子，用于测试上面的案例计数器。
+```verilog
+`timescale 1ns/1ns
+module tb_Counter;
+    reg clk, rst, button;
+    wire [31:0] count;
+
+    Counter u_Counter (.clk(clk), .rst(rst), .button(button), .count(count)); // 模块实例化
+
+    initial begin // 时钟
+        clk = 0;
+        forever #1 clk = ~clk;
+    end
+    initial begin // 按钮信号
+        button = 0;
+        forever begin
+            #5.5 button = 1;
+            #3 button = 0;
+        end
+    end
+    initial begin // 复位信号
+        rst = 0;
+        forever begin
+            #30 rst = 1;
+            #2 rst = 0;
+        end
+    end
+    initial begin // 仿真结束
+        #100 $finish;
+    end
+    initial begin // 仿真结果记录
+        $dumpfile("result.vcd");
+        $dumpvars(0, tb_Counter);
+    end
+endmodule
+```
+:::note[]
+* `#`用于时间延迟，比如`#5.5`表示延迟5.5个时间单位；
+* `$dumpfile`用于指定仿真结果记录的文件名，`$dumpvars`用于指定需要记录的信号；
+    `$dumpvars(0, module_name)`表示记录模块module_name的所有信号，
+    `$dumpvars(1, variable_name)`表示仅记录信号variable_name；
+* 
+:::
