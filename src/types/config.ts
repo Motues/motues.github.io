@@ -73,6 +73,13 @@ export type LIGHT_DARK_MODE =
   | typeof DARK_MODE
   | typeof AUTO_MODE
 
+export type FriendLink = {
+  name: string
+  avatar: string
+  url: string
+  description: string
+}
+
 export type BlogPostData = {
   body: string
   title: string

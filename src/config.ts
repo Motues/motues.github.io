@@ -3,6 +3,7 @@ import type {
   NavBarConfig,
   ProfileConfig,
   SiteConfig,
+  FriendLink,
 } from './types/config'
 import { LinkPreset } from './types/config'
 
@@ -92,3 +93,13 @@ export const licenseConfig: LicenseConfig = {
   name: 'CC BY-NC-SA 4.0',
   url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
 }
+
+export const friendLinkConfig: FriendLink[] = [
+  {
+    name: 'Han',
+    avatar: 'https://github.com/window-han.png',
+    url: 'https://window-han.netlify.app/about/',
+    description: 'window-han'
+  },
+  // 在此处添加更多友链
+]

@@ -6,6 +6,7 @@ import { getEntry } from 'astro:content'
 import { i18n } from '../i18n/translation'
 import I18nKey from '../i18n/i18nKey'
 import Markdown from '@components/misc/Markdown.astro'
+import { friendLinkConfig } from '../config'
 
 const aboutPost = await getEntry('spec', 'link')
 
@@ -18,5 +19,30 @@ const { Content } = await aboutPost.render()
                 <Content />
             </Markdown>
         </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+        {
+          friendLinkConfig.map((friend) => (
+            <a 
+              href={friend.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="card-base p-4 flex items-center gap-4 transition-all duration-200 hover:shadow-lg hover:border-primary/20"
+            >
+              <img 
+                src={friend.avatar} 
+                alt={friend.name} 
+                class="w-16 h-16 rounded-full object-cover"
+                width="64"
+                height="64"
+              />
+              <div class="flex-1 min-w-0">
+                <h3 class="font-bold text-lg truncate text-90">{friend.name}</h3>
+                <p class="text-sm mt-1 line-clamp-2 text-75">{friend.description}</p>
+              </div>
+            </a>
+          ))
+        }
     </div>
 </MainGridLayout>
