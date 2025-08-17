@@ -98,7 +98,7 @@ export const friendLinkConfig: FriendLink[] = [
   {
     name: 'Han',
     avatar: 'https://github.com/window-han.png',
-    url: 'https://window-han.netlify.app/about/',
+    url: 'https://window-han.netlify.app/',
     description: 'window-han'
   },
   // 在此处添加更多友链
