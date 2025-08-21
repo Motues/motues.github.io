@@ -106,6 +106,12 @@ export const friendLinkConfig: FriendLink[] = [
     avatar: 'https://github.com/TZMydl2006.png',
     url: 'https://tzmydl.top/',
     description: 'Embrace failure, Enjoy life, Take everything as grace'
+  },
+  {
+    name: 'MicDZ',
+    avatar: 'https://github.com/MicDZ.png',
+    url: 'https://micdz.cn/',
+    description: ''
   }
   // 在此处添加更多友链
 ]
