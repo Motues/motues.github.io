@@ -112,6 +112,12 @@ export const friendLinkConfig: FriendLink[] = [
     avatar: 'https://github.com/MicDZ.png',
     url: 'https://micdz.cn/',
     description: ''
+  },
+  {
+    name: 'Moyuin',
+    avatar: 'https://avatars.githubusercontent.com/u/174886737?v=4',
+    url: 'https://moyuin.top',
+    description: 'Floating Or Hovering.'
   }
   // 在此处添加更多友链
 ]
