@@ -4,7 +4,7 @@
 ```typescript
 {
     name: 'Motues',
-    avatar: 'https://github.com/Motues.png',
+    avatar: 'https://avatars.githubusercontent.com/u/164032838',
     url: 'https://motues.top',
     description: 'Like River!'
 }

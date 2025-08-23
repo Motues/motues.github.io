@@ -97,19 +97,19 @@ export const licenseConfig: LicenseConfig = {
 export const friendLinkConfig: FriendLink[] = [
   {
     name: 'Han',
-    avatar: 'https://github.com/window-han.png',
+    avatar: 'https://avatars.githubusercontent.com/u/226641976',
     url: 'https://window-han.netlify.app/',
     description: 'window-han'
   },
   {
     name: 'TZMydl',
-    avatar: 'https://github.com/TZMydl2006.png',
+    avatar: 'https://avatars.githubusercontent.com/u/192936468',
     url: 'https://tzmydl.top/',
     description: 'Embrace failure, Enjoy life, Take everything as grace'
   },
   {
     name: 'MicDZ',
-    avatar: 'https://github.com/MicDZ.png',
+    avatar: 'https://avatars.githubusercontent.com/u/34596177',
     url: 'https://micdz.cn/',
     description: ''
   },
@@ -118,6 +118,12 @@ export const friendLinkConfig: FriendLink[] = [
     avatar: 'https://avatars.githubusercontent.com/u/174886737?v=4',
     url: 'https://moyuin.top',
     description: 'Floating Or Hovering.'
+  },
+  {
+    name: '李慕然的一天',
+    avatar: 'https://limuran.top/favicon.ico',
+    url: 'https://limuran.top/',
+    description: '衣带渐宽终不悔，为伊消得人憔悴'
   }
   // 在此处添加更多友链
 ]
