@@ -124,6 +124,12 @@ export const friendLinkConfig: FriendLink[] = [
     avatar: 'https://limuran.top/favicon.ico',
     url: 'https://limuran.top/',
     description: '衣带渐宽终不悔，为伊消得人憔悴'
+  },
+  {
+    name: 'PK',
+    avatar: 'https://foruda.gitee.com/avatar/1735578534702305405/15325054_rustlove_1735578534.png!avatar100',
+    url: 'https://rustlove.cn',
+    description: 'we need a real revolution for ourselves.'
   }
   // 在此处添加更多友链
 ]
