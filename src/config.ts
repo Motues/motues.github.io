@@ -68,7 +68,7 @@ export const profileConfig: ProfileConfig = {
     {
       name: 'Mail',
       icon: 'fa6-solid:envelope',                               
-      url: 'mailto:2901987286@qq.com',
+      url: 'mailto:me@motues.top',
     },
     {
       name: 'QQ',
