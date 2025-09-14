@@ -114,6 +114,12 @@ export const friendLinkConfig: FriendLink[] = [
     description: ''
   },
   {
+    name: 'Q-mian',
+    avatar: 'https://avatars.githubusercontent.com/q-mian',
+    url: 'https://qmian.online/',
+    description: ''
+  },
+  {
     name: 'Moyuin',
     avatar: 'https://avatars.githubusercontent.com/u/174886737?v=4',
     url: 'https://moyuin.top',
